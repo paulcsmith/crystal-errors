@@ -1,7 +1,8 @@
 require "colorize"
 
 puts <<-ERROR
-#{"Error: Undefined constant MyMispelledConstent".colorize.yellow.bold} #{"(use --verbose for full trace)".colorize.dim}
+#{"Error: Undefined constant MyMispelledConstent".colorize.yellow.bold}
+#{"Showing last frame. Use --verbose for full trace.".colorize.dim}
 
 In #{"src/my_app.cr:".colorize}
 

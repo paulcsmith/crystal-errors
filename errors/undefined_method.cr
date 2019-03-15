@@ -1,7 +1,8 @@
 require "colorize"
 
 puts <<-ERROR
-#{"Error: undefined method 'coloriize' for String".colorize.yellow.bold} #{"(use --verbose for full trace)".colorize.dim}
+#{"Error: undefined method 'coloriize' for String".colorize.yellow.bold}
+#{"Showing last frame. Use --verbose for full trace.".colorize.dim}
 
 In #{"src/my_app.cr:".colorize}
 
