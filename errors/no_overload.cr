@@ -4,7 +4,7 @@ puts <<-ERROR
 #{"Error: no overload matches 'something' with type Int32.".colorize.yellow.bold}
 #{"Showing last frame. Use --verbose for full trace.".colorize.dim}
 
-In #{"src/my_app.cr".colorize}
+In src/my_app.cr:
 
  #{"14 |".colorize.dim} #{"full_name(1)".colorize.bold}
       #{"^~~~~~~~~".colorize.green}
