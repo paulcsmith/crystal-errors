@@ -1,11 +1,14 @@
 require "colorize"
 
 puts <<-ERROR
-#{"-- Undefined constant #{"MyMispelledConstent".colorize.bold}" --------------------------
+#{"Error: Undefined constant MyMispelledConstent".colorize.yellow.bold}
 
-In #{"src/my_app.cr".colorize.blue.bold}:
+#{"src/my_app.cr:".colorize}
 
-  #{"14 |".colorize.dim} MyMispelledConstent.do_something
+ #{"14 |".colorize.dim} #{"MyMispelledConstent.do_something".colorize.bold}
+      #{"^------------------".colorize.green}
 
-Did you mean #{"MyMispelledConstant".colorize(:yellow)}?
+#{"Did you mean 'MyMispelledConstant'?".colorize}
+
+
 ERROR
