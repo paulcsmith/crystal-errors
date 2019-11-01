@@ -1,11 +1,16 @@
 require "colorize"
 
 puts <<-ERROR
-#{"Showing last frame. Use --verbose for full trace.".colorize.dim}
+#{"Showing concise trace. Use --error-trace to expand.".colorize.dim}
 
-In #{"src/my_app.cr".colorize.underline}
+- #{"html Users::ShowPage, user: user".colorize.bold}
+  src/actions/users/show.cr.cr:11
+- #{"render_user(@user)".colorize.bold}
+  src/actions/users/show_page.cr.cr:11
 
- #{"14 |".colorize.dim} #{"full_name(1)".colorize.bold}
+In #{"src/pages/users/show_page.cr:23".colorize.underline}
+
+ #{"23 |".colorize.dim} #{"full_name(@user.age)".colorize.bold}
       #{"^~~~~~~~~".colorize.green}
 
 #{"Error:".colorize.red.bold} no overload matches 'full_name' with type Int32.
