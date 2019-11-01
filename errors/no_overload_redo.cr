@@ -1,21 +1,28 @@
 require "colorize"
 
+private def arrow
+  "▸".colorize.dim
+end
+
 puts <<-ERROR
-#{"Showing concise trace. Use --error-trace to expand.".colorize.dim}
 
-- #{"html Users::ShowPage, user: user".colorize.bold.yellow}
-  #{"Users::Show#html(Users::ShowPage, User)".colorize.bold}
-  src/actions/users/show.cr.cr:11
-- #{"render_user(@user)".colorize.bold.yellow}
-  #{"Users::ShowPage#render_user(User)".colorize.bold}
-  src/actions/users/show_page.cr.cr:11
+#{"Showing concise trace:".colorize.bold} #{"(Use --error-trace to expand)".colorize.dim}
 
-In #{"src/pages/users/show_page.cr:23".colorize.underline}
+ #{arrow} #{"handler.payload.new(context, handler.params).perform_action"}
+   #{"lib/lucky/src/lucky/route_handler.cr:10".colorize.dim}
+ #{arrow} #{"response = call"}
+   #{"lib/lucky/src/lucky/renderable.cr:97".colorize.dim}
+ #{arrow} #{"html Users::ShowPage, user: user"}
+   #{"src/actions/users/show.cr.cr:11".colorize.dim}
+ #{arrow} #{"render_user(@user)"}
+   #{"src/actions/users/show_page.cr.cr:11".colorize.dim}
+
+#{"Problem found in".colorize.red.bold} #{"src/pages/users/show_page.cr:23".colorize.underline.red.bold}
 
  #{"23 |".colorize.dim} #{"full_name(@user.age)".colorize.bold}
       #{"^--------".colorize.green}
 
-#{"Error: no overload matches 'full_name' with type Int32.".colorize.yellow.bold}
+#{"Error:".colorize.bold.yellow} no overload matches 'full_name' with type Int32.
 
 Overloads are:
  - full_name(name : String)
@@ -23,3 +30,4 @@ Overloads are:
 
 
 ERROR
+# {"Error: no overload matches 'full_name' with type Int32.".colorize.yellow.bold}
