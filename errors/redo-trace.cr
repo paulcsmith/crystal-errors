@@ -26,15 +26,13 @@ puts <<-ERROR
 #{"In Users::ShowPage#render_user(User)".colorize.bold}
 #{"11 |".colorize.dim} #{"render_user(@user)".colorize}
 
-#{"--- Then Crystal found an issue".colorize.dim}
-
-#{"src/pages/users/show_page.cr:23".colorize.bold.cyan}
+#{"src/pages/users/show_page.cr:23".colorize.bold.cyan} #{"(error here)".colorize.bold.yellow}
 #{"In".colorize.bold} #{"Users::ShowPage#render_user(User)".colorize.bold}
 
-#{"23 |".colorize.dim} #{"full_name(@user.age)".colorize.bold.on_red.white}
+#{"23 |".colorize.dim} #{"full_name(@user.age)".colorize.bold}
                #{"^--------".colorize.yellow.bold}
 
-#{"Error:".colorize.yellow.bold} #{"no overload matches 'full_name' with type Int32.".colorize.bold}
+#{"Error:".colorize.yellow.bold} #{"no overload matches 'full_name' with type Int32.".colorize.bold.yellow}
 
 Overloads are:
  - full_name(name : String)
