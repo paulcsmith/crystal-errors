@@ -26,7 +26,7 @@ puts <<-ERROR
 #{"In Users::ShowPage#render_user(User)".colorize.bold}
 #{"11 |".colorize.dim} #{"render_user(@user)".colorize}
 
-#{"src/pages/users/show_page.cr:23".colorize.bold.cyan} #{"(error here)".colorize.bold.yellow}
+#{"Problem at ▸".colorize.bold.yellow} #{"src/pages/users/show_page.cr:23".colorize.bold.cyan}
 #{"In".colorize.bold} #{"Users::ShowPage#render_user(User)".colorize.bold}
 
 #{"23 |".colorize.dim} #{"full_name(@user.age)".colorize.bold}
